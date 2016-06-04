@@ -21,6 +21,10 @@ app.get('/', function (req, res) {
 
 
 app.post('/report', function(req,res) {
+	if(req.body == null){
+		res.send("fuck off");
+		return;
+	}
 	console.log(req.body);
 	var subTime = Date.now();
 	var userloc = { latitude: req.body.latitude,
@@ -33,8 +37,10 @@ app.post('/report', function(req,res) {
 app.post('/find', function(req,res) {
 	console.log(req.body);
 
-	if(req.body.lat == null)
-		res.send("fuck off")
+	if(req.body == null){
+		res.send("fuck off");
+		return;
+	}
 
 	var lat = req.body.lat;
 	var lon = req.body.long;

@@ -4,7 +4,7 @@ var geolib = require("geolib");
 var bodyParser = require('body-parser');
 
 var locs = [{latitude: 30, longitude: 40}, {latitude: 0, longitude: 0}];
-
+console.log(locs);
 app.use('/js', express.static(__dirname+'/js'))
 app.use('/css', express.static(__dirname+'/css'))
 app.use(bodyParser.urlencoded({
@@ -53,22 +53,11 @@ app.post('/find', function(req,res) {
 	var lat = req.body.latitude;
 	var lon = req.body.longitude;
 	var user = {};
-	if(locs.length = 0)
+	if(locs.length == 0)
 		res.send("YOU'RE OUT OF LUCK COWBOY");
 	user.latitude = lat;
 	user.longitude = lon;
-	console.log(lat + "   " + lon);
 	console.log(locs);
 	var nearest = geolib.findNearest(user,locs,1);
 	res.send(nearest);
 })
-
-
-
-// var cull = setInterval(function(){
-// 	var date = new Date();
-// 	var now = date.now();
-// 	if(now != locs[0].time + 3600000){
-// 		locs.splice(0,1);
-// 	}
-// },5000)

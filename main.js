@@ -1,11 +1,16 @@
 var express = require('express');
 var app = express();
 var geolib = require("geolib");
+var bodyParser = require('body-parser');
 
-var locs = [{latitude: 30, longitude: 40}];
+var locs = [{latitude: 30, longitude: 40}, {latitude: 0, longitude: 0}];
 
 app.use('/js', express.static(__dirname+'/js'))
 app.use('/css', express.static(__dirname+'/css'))
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
@@ -21,7 +26,9 @@ app.get('/', function (req, res) {
 
 
 app.post('/report', function(req,res) {
+	console.log(req);
 	if(req.body == null){
+		console.log("fuck");
 		res.send("fuck off");
 		return;
 	}
@@ -31,24 +38,27 @@ app.post('/report', function(req,res) {
 					longitude:req.body.longitude,
 					 time: subTime}
 	locs.push(userloc);
+	console.log("SUCCESS")
 	res.send("thanks bro");
 })
 
 app.post('/find', function(req,res) {
-	console.log(req.body);
-
 	if(req.body == null){
+		console.log("fuck");
 		res.send("fuck off");
 		return;
 	}
-
-	var lat = req.body.lat;
-	var lon = req.body.long;
-	var user;
+	console.log("SUCCESS")
+	console.log(req.body)
+	var lat = req.body.latitude;
+	var lon = req.body.longitude;
+	var user = {};
 	if(locs.length = 0)
 		res.send("YOU'RE OUT OF LUCK COWBOY");
 	user.latitude = lat;
 	user.longitude = lon;
+	console.log(lat + "   " + lon);
+	console.log(locs);
 	var nearest = geolib.findNearest(user,locs,1);
 	res.send(nearest);
 })

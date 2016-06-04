@@ -3,10 +3,14 @@ var nearestParking = new google.maps.LatLng(39.768403,-86.15806800000001);
 function sendLoc(position) {
 	var lat = position.coords.latitude;
     var lon = position.coords.longitude;
-	$.post( "/find", { name: "John", time: "2pm", latitude: lat, longitude: lon })
-	.done(function( data ) {
+	$.post( "/find", {
+		name: "John",
+		time: "2pm",
+		latitude: lat,
+		longitude: lon
+	 },function( data ) {
 		alert( "Data Loaded: " + data );
-	});
+	}, "json");
 };
 
 function pos(){

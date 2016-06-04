@@ -1,11 +1,21 @@
 var nearestParking = new google.maps.LatLng(39.768403,-86.15806800000001);
-function sendLoc() {
-	console.log("ayy");
-	$.post( "/find", { name: "John", time: "2pm" })
+
+function sendLoc(position) {
+	var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+	$.post( "/find", { name: "John", time: "2pm", latitude: lat, longitude: lon })
 	.done(function( data ) {
 		alert( "Data Loaded: " + data );
 	});
 };
+
+function pos(){
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(sendLoc);
+	} else {
+		showError("Your browser does not support Geolocation!");
+	}
+}
 
 function initialize() {
 	var mapProp = {

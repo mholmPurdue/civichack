@@ -4,7 +4,12 @@ var geolib = require("geolib");
 
 var locs = [{latitude: 30, longitude: 40}];
 
-app.use('/', express.static(__dirname+'/'))
+app.use('/js', express.static(__dirname+'/js'))
+app.use('/css', express.static(__dirname+'/css'))
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -15,7 +20,7 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('report', function(req,res) {
+app.post('/report', function(req,res) {
 	console.log(req.body);
 	var subTime = Date.now();
 	var userloc = { latitude: req.body.latitude,
@@ -25,9 +30,12 @@ app.post('report', function(req,res) {
 	res.send("thanks bro");
 })
 
-app.post('find', function(req,res) {
+app.post('/find', function(req,res) {
 	console.log(req.body);
-	var quan = req.body.amount;
+
+	if(req.body.lat == null)
+		res.send("fuck off")
+
 	var lat = req.body.lat;
 	var lon = req.body.long;
 	var user;
@@ -38,6 +46,8 @@ app.post('find', function(req,res) {
 	var nearest = geolib.findNearest(user,locs,1);
 	res.send(nearest);
 })
+
+
 
 // var cull = setInterval(function(){
 // 	var date = new Date();

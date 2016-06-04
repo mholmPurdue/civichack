@@ -4,6 +4,8 @@ var geolib = require("geolib");
 
 var locs = [{latitude: 30, longitude: 40}];
 
+app.use('/', express.static(__dirname+'/'))
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
@@ -11,6 +13,7 @@ app.listen(3000, function () {
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
+
 
 app.post('report', function(req,res) {
 	console.log(req.body);

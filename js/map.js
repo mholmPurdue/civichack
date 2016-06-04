@@ -9,7 +9,6 @@ function sendLoc(position) {
 		latitude: lat,
 		longitude: lon
 	 },function( data ) {
-		alert( "Data Loaded: " + data );
 		//new marker.setMap(new google.maps.LatLng(data.latitude, data.longitude));
 		var pos = new google.maps.LatLng(data.latitude, data.longitude);
 		marker.setPosition(pos);
@@ -23,7 +22,6 @@ function sendReport(position) {
 		latitude: lat,
 		longitude: lon
 	 },function( data ) {
-		alert( "Rerpoterted: " + data );
 	}, "json");
 }
 

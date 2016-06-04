@@ -9,53 +9,62 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/bootstrap.css">
 
+    <style>
+    	.btn-primary{
+    		background-color: #B8959B;
+    		display: inline;
+    		margin: 3px;
+    	}
+    	.btn-info{
+    		background-color: #B8959B;
+    		width: 275px;
+    		height: 50px;
+    		font-size: 20px;
+    		font-family: helvetica;
+    		margin-top: 5px;
+    	}
+    	body{
+    		background-color: #FFF0D6;
+    	}
+    	hr{
+    		margin: 5px;
+    		border-color: #EE7469;
+    		width: 100%;
+    	}
 
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    	h3{
+    		font-family: helvetica;
+    		font-size: 18px;
+    		text-align: center;
+    		font-style: italic;
+    	}
+    	h2{
+    		display: inline;
+    	}
+		</style>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/rosterformv2.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-  <script src="js/map.js"></script>
-    <style>
-    	.btn-primary{
-    		color: black;
-    	}
-		</style>
+    <script src="js/map.js"></script>
   </head>
 
-  <body>
-  	<div class="row">
-  			<div style="text-align:center;" class="col-sm-12">
-					<h2 style="font-family:impact">Graham Parking</h2>
-	  					<div id = "reportForm">
-							<button id="report" class="btn btn-block btn-info" type="submit" name="report">Report</button>
+  <body style="width:auto;">
+  			<div style="text-align:center;">
+					<br><h2 style="font-family:helvetica; font-weight:bold; color:#383732;">Graham Parking</h2></u>
+							<h3 id="tooltip">Click "Set" to notify others of open parking spots! <br> Click "Search" to locate nearest parking spot!</h3>
+	  					<div>
+	  					<button id="report" onclick="report()" class="btn btn-info" type="submit" name="report">Set</button>
 	  					</div>
-	  					<div id = "findForm">
-							<button id="find" class="btn btn-block btn-info" style="margin-top:1rem" type="submit" name="find" onclick="pos()">Find</button>
+
+	  					<div>
+	  					<button id="find" onclick="pos()" class="btn btn-info" style="margin-top:1rem" type="submit" name="find">Search</button>
 	  					</div>
   			</div>
-<!-- *********************************************************************************************************************** -->
-  	<div class="row" style="text-align:center;" id="findinfo">
-  		<ul id="mylist" class="col-sm-12">
-  			<button style="background-color:red; display:default" class="btn btn-primary" type="submit" name="report">
-  				default
-  			</button></br>
-  			<button style="background-color:yellow; display:default" class="btn btn-primary" type="submit" name="report">
-  				Some
-  			</button></br>
-  			<button style="background-color:green; display:default" class="btn btn-primary" type="submit" name="report">
-  				Lots
-  			</button></br>
-      </ul>
-
-	<div align = "center";" id="find" class="row">
-		<ul id="mylist" class="medium-8 medium-offset-1 columns">
-			<div id="googleMap" style="width: 500px; height: 380px;"></div>
-		</ul>
-      FindPlace
-    </div>
-<!-- *********************************************************************************************************************** -->
-
+            <br><br>
+         <div id="googleMap" style="margin: auto; width: 500px; height: 380px;"></div>
   </body>
+
 </html>

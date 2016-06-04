@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
 
 app.push('report', function(req,res) {
 	console.log(res.body);
+	res.send("thanks bro");
 	var quan = res.body.amount;
 	var loc = ref.child("location");
 	loc.set(
@@ -23,16 +24,18 @@ app.push('report', function(req,res) {
 	    long: longi
 	  }
 	});
-	res.send("thanks bro");
+
 })
 
 app.push('find', function(req,res){
 	console.log(res.body);
 	var quan = res.body.amount;
+	res.send("thanks dude")
 	var lat = res.body.lat;
 	var lon = res.body.long;
-	ref.on("value", function(snapshot) {
+	ref.on("location", function(snapshot) {
 	  console.log(snapshot.val());
+
 	}
-	res.send("thanks dude")
+
 })

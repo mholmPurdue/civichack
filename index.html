@@ -7,34 +7,30 @@
     <title>CivicHack App</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
     <style>
-    li a{
-    	margin-left: 1rem;
-	}
-	button{
-		margin-left: 1rem;
-	}
-	</style>
+
+		</style>
   </head>
 
   <body>
   	<div class="row">
   		<div class="row">
-  			<div class="medium-8 columns">
-				<h2 style="font-family:verdana">Graham Parking</h2>
+  			<div class="small-6 columns">
+				<h2 style="font-family:impact">Graham Parking</h2>
   				<form id="reportForm">
-  					<div class="small-4 columns">
-  					<button class="button" type="submit" name="report">Report</button>
+  					<div class="small-6 columns">
+  					<button class="btn btn-block btn-info" type="submit" name="report">Report</button>
   					</div>
   				<form id="findForm">
-  					<div class="small-4 columns">
-  					<button style="margin:1rem" class="button" type="submit" name="find">Find</button>
+  					<div class="small-6 columns">
+  					<button class="btn btn-block btn-info" style="margin:1rem" class="button" type="submit" name="find">Find</button>
   					</div>  					
   		</div>
   	</div>
 
-  	<div id="report" class="row">
+  	<div style="display:none;" id="report" class="row">
   		<ul id="mylist" class="medium-8 medium-offset-1 columns">
   			<button>
   				None
@@ -49,7 +45,7 @@
       ReportPlace
     </div>
 
-  	<div id="find" class="row">
+  	<div style="display:none;" id="find" class="row">
   		<ul id="mylist" class="medium-8 medium-offset-1 columns">
   			
       </ul>

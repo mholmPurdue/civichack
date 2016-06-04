@@ -1,12 +1,59 @@
-<html>
-	<head>
-		<title>thing</title>
-		<script src="base.css"></script>
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="local.js"></script>
-	</head>
-	<body>
-		<div class="button">Report</div>
-		<div class="button">Find</div>
-	</body>
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicHack App</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <style>
+    li a{
+    	margin-left: 1rem;
+	}
+	button{
+		margin-left: 1rem;
+	}
+	</style>
+  </head>
+
+  <body>
+  	<div class="row">
+  		<div class="row">
+  			<div class="medium-8 columns">
+				<h2 style="font-family:verdana">Graham Parking</h2>
+  				<form id="reportForm">
+  					<div class="small-4 columns">
+  					<button class="button" type="submit" name="report">Report</button>
+  					</div>
+  				<form id="findForm">
+  					<div class="small-4 columns">
+  					<button style="margin:1rem" class="button" type="submit" name="find">Find</button>
+  					</div>  					
+  		</div>
+  	</div>
+
+  	<div id="report" class="row">
+  		<ul id="mylist" class="medium-8 medium-offset-1 columns">
+
+      </ul>
+      ReportPlace
+    </div>
+
+  	<div id="find" class="row">
+  		<ul id="mylist" class="medium-8 medium-offset-1 columns">
+  			
+      </ul>
+      FindPlace
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <script src="rosterformv2.js"></script>
+
+  </body>
+
 </html>

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 
     <style>
-
+    	.btn-primary{
+    		color: black;
+    	}
 		</style>
   </head>
 
@@ -18,43 +20,40 @@
   	<div class="row">
   			<div style="text-align:center;" class="col-sm-12">
 					<h2 style="font-family:impact">Graham Parking</h2>
-	  				<form id="reportForm">
+	  				<form>
 	  					<div>
-	  					<button class="btn btn-block btn-info" type="submit" name="report">Report</button>
+	  					<button id="report" class="btn btn-block btn-info" type="submit" name="report">Report</button>
 	  					</div>
-	  				<form id="findForm">
+	  				<form>
 	  					<div>
-	  					<button class="btn btn-block btn-info" style="margin-top:1rem" type="submit" name="find">Find</button>
+	  					<button id="find" class="btn btn-block btn-info" style="margin-top:1rem" type="submit" name="find">Find</button>
 	  					</div>  					
   			</div>
-
-  	<div style="display:none;" id="report" class="row">
-  		<ul id="mylist" class="medium-8 medium-offset-1 columns">
-  			<button>
-  				None
-  			</button>
-  			<button>
+<!-- *********************************************************************************************************************** -->
+  	<div class="row" style="text-align:center;" id="findinfo">
+  		<ul id="mylist" class="col-sm-12">
+  			<button style="background-color:red; display:default" class="btn btn-primary" type="submit" name="report">
+  				default
+  			</button></br>
+  			<button style="background-color:yellow; display:default" class="btn btn-primary" type="submit" name="report">
   				Some
-  			</button>
-  			<button>
+  			</button></br>
+  			<button style="background-color:green; display:default" class="btn btn-primary" type="submit" name="report">
   				Lots
-  			</button>  			  			
+  			</button></br>	  			
       </ul>
-      ReportPlace
-    </div>
 
-  	<div style="display:none;" id="find" class="row">
-  		<ul id="mylist" class="medium-8 medium-offset-1 columns">
-  			
+      <h3 style="background-color:yellow">
+  			THIS IS WHERE FIND INFO GOES
+  		</h3>	
       </ul>
-      FindPlace
     </div>
-
+<!-- *********************************************************************************************************************** -->
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-    <script src="rosterformv2.js"></script>
+    <script src="collapse.js"></script>
 
   </body>
 

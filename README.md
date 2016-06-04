@@ -2,6 +2,8 @@
 
 npm install nodejs
 
-npm install firebase
-
 npm install express
+
+npm install body-parser
+
+npm install geolib
